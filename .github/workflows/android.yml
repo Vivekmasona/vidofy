@@ -24,6 +24,8 @@ jobs:
         mkdir -p www
         if [ -f index.html ]; then
           mv index.html www/
+        else
+          echo "<!-- Vidofy -->" > www/index.html
         fi
 
     - name: Add Capacitor Android Platform
@@ -42,3 +44,4 @@ jobs:
       with:
         name: vidofy-debug
         path: android/app/build/outputs/apk/debug/app-debug.apk
+        
