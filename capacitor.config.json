@@ -1,0 +1,18 @@
+{
+  "appId": "com.vidofy.app",
+  "appName": "Vidofy",
+  "webDir": "www",
+  "server": {
+    "url": "https://vidofy.vercel.app",
+    "cleartext": true
+  },
+  "android": {
+    "allowMixedContent": true,
+    "webContentsDebuggingEnabled": true
+  },
+  "plugins": {
+    "StatusBar": {
+      "overlaysWebView": true
+    }
+  }
+}
