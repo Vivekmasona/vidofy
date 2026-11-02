@@ -4,52 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <title>Vidofy</title>
-<style>
-  html, body { 
-    margin: 0; padding: 0; width: 100%; height: 100%; 
-    background: #07070a; overflow: hidden; 
-  }
-  iframe { 
-    width: 100%; height: 100%; border: none; 
-  }
-</style>
 </head>
-<body>
-
-  <!-- Vidofy Website iframe with full WebRTC, Mic, Camera & Fullscreen permissions -->
-  <iframe src="https://vidofy.vercel.app" allow="camera; microphone; fullscreen; autoplay; display-capture; geolocation"></iframe>
-
+<body style="background:#07070a; margin:0; padding:0;">
 <script>
-// Hide Android Status Bar for True Fullscreen
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     if (window.Capacitor && window.Capacitor.Plugins.StatusBar) {
       await window.Capacitor.Plugins.StatusBar.hide();
     }
   } catch (e) {
-    console.log("StatusBar hide error: ", e);
+    console.log(e);
   }
 });
-
-// Media Session API for Lock-Screen Notification Controls
-if ('mediaSession' in navigator) {
-  navigator.mediaSession.metadata = new MediaMetadata({
-    title: "Vidofy Call & Stream",
-    artist: "Vidofy Studio",
-    album: "WebRTC & Audio",
-    artwork: [
-      { src: 'https://vidofy.vercel.app/icon.png', sizes: '512x512', type: 'image/png' }
-    ]
-  });
-}
-
-// Background Freeze-Mitigation Heartbeat
-setInterval(() => {
-  if ('mediaSession' in navigator) {
-    navigator.mediaSession.playbackState = "playing";
-  }
-}, 2000);
 </script>
-
 </body>
 </html>
